@@ -3,18 +3,16 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
-  user: null,
-  error: '',
-  loading: false
+  name: '',
+  phone: '',
+  shift: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
-
   switch (action.type) {
     case EMPLOYEE_UPDATE:
-      return { ...state, email: action.payload };
+      // action.payload === { prop: 'name', value: 'Jane' }
+      return { ...state, [action.payload.prop]: action.payload.value };
     default:
       return state;
   }
